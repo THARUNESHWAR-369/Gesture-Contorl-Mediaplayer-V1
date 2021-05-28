@@ -17,3 +17,7 @@
 >     controler = YT_VLC_CONTROLL_HAND_TRACKING(CHOICE='youtube', WEB_CAM_SOURCE=0)
 >     controler.start()
 > ```
+
+
+# Sources
+> [Mediapipe](https://google.github.io/mediapipe/solutions/hands.html)
