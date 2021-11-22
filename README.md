@@ -12,6 +12,7 @@
 
 > Change CHOICE to 'youtube' or 'vlc'    
 > Change WEB_CAM_SOURCE to your webcam Source
+> Change swipe option to True (TO enable Advance control)
 
 > ```
 > from HAND_GESTURE_MEDIAPLAYER_CONTROLER import YT_VLC_CONTROL_HAND_TRACKING
