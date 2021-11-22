@@ -3,125 +3,84 @@ import time
 import pyautogui
 
 class FUNCTION_HANDLER:
-    def __init__(self, choice = '', delay = 0.0, pos=0):
-        self.choice = choice
-        print(self.choice)
-        self.play_pause_c, self.full_screen_c, self.vol_up, self.vol_down, self.ford, self.backd = 0, 0, 0, 0, 0, 0
-        self.YT_THRESH = 55
-        self.screen_width, self.screen_height = pyautogui.size()
-        self.DELAY = delay
-        self.pos = pos
 
-    def run_play_pause(self):
-        self.play_pause_c += 1
-        #print(self.play_pause_c, self.choice)
-        if self.play_pause_c == 1:
-            if self.choice == 'yotube':
-                try:
-                    pyautogui.click(x=self.screen_width//2, y=self.screen_height//2)
-                except:
-                    pyautogui.press('k')
-            if self.choice == 'vlc':
-                pyautogui.press("space")
-            time.sleep(self.DELAY)
-        if self.play_pause_c > 1:
-            self.play_pause_c = -1
-        time.sleep(self.DELAY)
+    __CONFIDENCE = 0.687644321
+    __VIEWS_PATH = r"E:\tharun2\advance gesture control (CV)\images\views.PNG"
+    __SKIP_ADS_PATH = r"E:\tharun2\advance gesture control (CV)\images\skip_ads.PNG"
+
+    def __init__(self, choice = '', delay = 0.0, pos=0) -> None:
+        self.__CHOICE = choice
+        print(self.__CHOICE)
+        self.__DELAY = delay
+        pyautogui.FAILSAFE = False
+
+    def __clickOnTheScreen(self, CHOICE):
+        if CHOICE == "youtube":
+            __VIEWS = pyautogui.locateOnScreen(f"{self.__VIEWS_PATH}", 
+                                    confidence=self.__CONFIDENCE)
+            if __VIEWS == None:
+                return None
+            else:
+                __LEFT, __TOP, __WIDHT, __HEIGHT = __VIEWS
+                return __LEFT + __HEIGHT, __TOP + (__HEIGHT // 2) 
+        return None
+
+    def run_play_pause(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
+            pyautogui.press('space')
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("space")
         return "PLAY/PAUSE"
+      
     
-    def fullPageMode(self):
-        self.full_screen_c += 1
-        if self.full_screen_c == 1:
-            try:
-                pyautogui.press('f')
-            except:
-                pyautogui.press('f')
-            time.sleep(self.DELAY)
-        if self.full_screen_c > 1:
-            self.full_screen_c = -1
-        time.sleep(self.DELAY)
-        return "FUll SCREEN/FUll SCREEN EXIT"
+    def fullScreen(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
+            pyautogui.press('f')
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("f")
+        return "FULL SCREEN"
     
-    def forward(self):
-        self.ford += 1
-        if self.ford == 1:
-            try:
-                pyautogui.press('right')
-            except:
-                pyautogui.press('right')
-            time.sleep(self.DELAY)
-        if self.ford > 1:
-            self.ford = -1
-        time.sleep(self.DELAY)
-        return 'FORWARD'
-    
-    def backward(self):
-        self.backd += 1
-        if self.backd == 1:
-            try:
-                pyautogui.press('left')
-            except:
-                pyautogui.press('left')
-            time.sleep(self.DELAY)
-        if self.backd > 1:
-            self.backd = -1
-        time.sleep(self.DELAY)
-        return 'BACKWARD'
-    
-    def vol_dec_yt(self):
-        self.vol_down += 1
-        if self.vol_down == 1:
-            try:
-                pyautogui.press('down')
-            except:
-                pyautogui.press('down')
-            time.sleep(self.DELAY)
-        if self.vol_down > 1:
-            self.vol_down = -1
-        time.sleep(self.DELAY)
-        return 'VOLUME DECREASED'
-    
-    def vol_inc_yt(self):
-        self.vol_up += 1
-        if self.vol_up == 1:
-            try:
-                pyautogui.press('up')
-            except:
-                pyautogui.press('up')
-            time.sleep(self.DELAY)
-        if self.vol_up > 1:
-            self.vol_up = -1
-        time.sleep(self.DELAY)
-        return 'VOLUME INCREASED'
-        
-    def forward_v2(self):
-        try:
+    def forward(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
             pyautogui.press('right')
-        except:
-            pyautogui.press('right')
-        time.sleep(self.DELAY)
-        return 'FORWARD'
-    
-    def backward_v2(self):
-        try:
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("right")
+        return "FORWARD"
+
+    def backward(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
             pyautogui.press('left')
-        except:
-            pyautogui.press('left')
-        time.sleep(self.DELAY)
-        return 'BACKWARD'
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("left")
+        return "BACKWARD"
     
-    def vol_inc_yt_v2(self):
-        try:
+    def vol_inc(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
             pyautogui.press('up')
-        except:
-            pyautogui.press('up')
-        time.sleep(self.DELAY)
-        return 'VOLUME INCREASED'
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("up")
+        return "VOLUME INCREASE"
+
+    def vol_dec(self) -> str:
+        if self.__CHOICE == 'youtube':
+            time.sleep(self.__DELAY)
+            pyautogui.press('down')
+        if self.__CHOICE == 'vlc':
+            pyautogui.press("down")
+        return "VOLUME DECREASE"
     
-    def vol_dec_yt_v2(self):
-        try:
-            pyautogui.press('down')
-        except:
-            pyautogui.press('down')
-        time.sleep(self.DELAY)
-        return 'VOLUME DECREASED'
+    def skip_ads(self) -> str:
+        __SKIPADS = pyautogui.locateOnScreen(f"{self.__SKIP_ADS_PATH}", 
+                                    confidence=self.__CONFIDENCE)
+        if __SKIPADS == None:
+            return "No skip Ads Found"
+        else:
+            __LEFT, __TOP, __WIDHT, __HEIGHT = __SKIPADS
+            pyautogui.click(x=__LEFT + __HEIGHT, 
+            y=__TOP + (__HEIGHT // 2) )
+            return "SKIP ADS"
