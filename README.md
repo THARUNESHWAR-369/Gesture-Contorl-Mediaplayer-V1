@@ -1,7 +1,8 @@
-# Gesture-Control-Mediaplayer-V1
+# Gesture-control-mediaplayer
 
 [![Maintenance](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/) 
 [![Maintenance](https://img.shields.io/badge/Mediapipe-Traking-red.svg)](https://google.github.io/mediapipe/) 
+[![Maintenance](https://img.shields.io/badge/OPEN-CV-Python-green.svg)](https://opencv.org) 
 
 ![adsf](images/demo.gif)
 
@@ -15,8 +16,8 @@
 > from HAND_GESTURE_MEDIAPLAYER_CONTROLER import YT_VLC_CONTROL_HAND_TRACKING
 > 
 > if __name__ == "__main__":
->     controler = YT_VLC_CONTROLL_HAND_TRACKING(CHOICE='youtube', WEB_CAM_SOURCE=0)
->     controler.start()
+>   run = YT_VLC_CONTROL_HAND_TRACKING(CHOICE='youtube', swipe=False)
+>   run.start()
 > ```
 
 # Demo 
