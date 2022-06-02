@@ -8,6 +8,32 @@
 ![adsf](images/demo.gif)
 
 
+## Sample
+
+># Play Pause Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/play%20pause.png)
+
+># Volume Increase Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/volume%20increase.png)
+
+># Volume Decrease Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/volume%20decrease.png)
+
+># Forward Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/forward.png)
+
+># Rewind Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/backward.png)
+
+># Full Screen Gesture
+>
+>![](https://github.com/THARUNESHWAR-369/Gesture-control-mediaplayer/blob/main/gesture%20position/fullscreen.png)
+
 # How to use it?
 
 > Change CHOICE to 'youtube' or 'vlc'    
